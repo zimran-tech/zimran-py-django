@@ -8,9 +8,10 @@ class HttpHostRenameMiddleware:
         self.get_response = get_response
 
     def __call__(self, request: HttpRequest):
-        request.META['HTTP_HOST'] = self._rename_http_host(request.META['HTTP_HOST'])
+        self.rename_http_host(request)
         return self.get_response(request)
 
     @staticmethod
-    def _rename_http_host(http_host: str) -> str:
-        return http_host.replace('_', '-')
+    def rename_http_host(request: HttpRequest) -> None:
+        if request.META.get('HTTP_HOST'):
+            request.META['HTTP_HOST'] = request.META['HTTP_HOST'].replace('_', '-')
