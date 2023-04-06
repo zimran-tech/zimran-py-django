@@ -7,7 +7,7 @@ class HttpHostRenameMiddleware:
     def __init__(self, get_response: Callable) -> None:
         self.get_response = get_response
 
-    def __call__(self, request: HttpRequest):
+    def __call__(self, request: HttpRequest):  # type: ignore[no-untyped-def]
         self.rename_http_host(request)
         return self.get_response(request)
 

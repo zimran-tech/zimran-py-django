@@ -8,3 +8,4 @@ flake8-commas
 flake8-quotes
 pytest
 pytest-cov
+mypy
