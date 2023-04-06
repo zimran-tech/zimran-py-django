@@ -21,7 +21,7 @@ MIDDLEWARE = [
 # settings.py
 
 MIDDLEWARE = [
-    'zimran.django.middleware.LoguruMiddleware'
+    'zimran.django.middleware.LoguruMiddleware',
 ]
 
 ```
